@@ -1,0 +1,55 @@
+.player {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.time-control {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+}
+
+.music-bar {
+    width: 100%;
+    margin-bottom: 16px;
+    height: 10px;
+    border-radius: 5px;
+    outline: none;
+    filter: hue-rotate(20deg);
+}
+
+.play-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    padding: 5%;
+}
+
+.skip-back,
+.play,
+.pause,
+.skip-forward {
+    cursor: pointer;
+}
+
+
+.skip-back:active,
+.play:active,
+.pause:active,
+.skip-forward:active {
+    color: darkgray;
+}

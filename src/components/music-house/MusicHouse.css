@@ -1,0 +1,100 @@
+
+:root{
+    --mainColor: #fff;
+    --mainLightColor: rgba(235,235,235,0.5);
+    --mainDimColor: rgb(228,228,228);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--mainColor);
+    position: relative; 
+    overflow: hidden;
+}
+
+.backgroundVideo{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    object-fit: cover;
+    height: 100vh;
+    z-index: -1;
+    filter: saturate(2.5);
+}
+
+.blackScreen{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    pointer-events: none;
+    background-color: rgba(17,17,17,0.2);
+}
+
+.library-container{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    width: 350px;
+    z-index: 99;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: rgba(181, 95, 234, 0.219);
+}
+
+.musicContainer{
+    width: 350px;
+    padding: 35px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 36px;
+    box-shadow: 0 0 20px rgba(26,26,26,0.1),
+    0 0 40px rgba(26,26,26,0.1),
+    0 0 80px rgba(26,26,26,0.1);
+    transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    backdrop-filter: blur(15px);
+    font-weight: 600;
+}
+
+.musicPlayer{
+    margin: 0;
+    margin-bottom: 10px;
+    color: var(--mainLightColor);
+}
+
+.musicTitle{
+    margin: 0 auto;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.musicArtist{
+    color: var(--mainDimColor);
+    margin: 4px 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+
+#songAvatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 18px 0;
+    position: relative;
+    cursor: pointer;
+}
+

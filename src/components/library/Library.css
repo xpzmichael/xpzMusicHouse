@@ -1,0 +1,17 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.library {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.library-songs {
+    max-height: 100%;
+    overflow-y: auto;
+    padding-bottom: 80px;
+}

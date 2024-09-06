@@ -97,7 +97,7 @@ const MusicHouse = () => {
             <video 
                 src="./videos/video1.mp4" 
                 autoPlay loop muted 
-                className="backgroundVideo"
+                className="background-video"
             ></video>
             <div className="library-container" ref={libraryRef}>
                 <LibraryButton setIsOpen={setIsOpen} isOpen={isOpen}/>
@@ -108,7 +108,7 @@ const MusicHouse = () => {
                 audioRef={audioRef} 
                 isPlaying={isPlaying}
             /></div>
-            <div className="musicContainer">
+            <div className="music-container">
                 <SongPage currentSong={currentSong} isPlaying={isPlaying}/>
                 <Player 
                     currentSong={currentSong} 

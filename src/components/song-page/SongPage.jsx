@@ -32,16 +32,16 @@ const SongPage = ({ currentSong, isPlaying }) => {
 
     return (
         <div className="song-container">
-            <p className="musicTitle">{currentSong.name}</p>
-            <p className="musicArtist">{currentSong.artist}</p>
+            <p className="music-title">{currentSong.name}</p>
+            <p className="music-artist">{currentSong.artist}</p>
             <div
-                className="songAvatarWrapper"
+                className="song-avatar-wrapper"
                 ref={scope}
             >
                 <img
                     src={currentSong.cover}
                     alt="Song Avatar"
-                    className="songAvatar"
+                    className="song-avatar"
                 />
             </div>
         </div>

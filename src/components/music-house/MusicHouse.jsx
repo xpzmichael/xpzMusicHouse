@@ -143,6 +143,22 @@ const MusicHouse = () => {
 
     const scope = useAppAnimate(isLibraryOpen, isInfoOpen);
 
+    const handleClickOutside = (event) => {
+        if (!event.target.closest('.library-container') && isLibraryOpen) {
+            setIsLibraryOpen(false);
+        }
+        if (!event.target.closest('.info-container') && isInfoOpen) {
+            setIsInfoOpen(false);
+        }
+    };
+    
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, [isLibraryOpen, isInfoOpen]);
+
     return (
         <div className="container" ref={scope}>
             <audio

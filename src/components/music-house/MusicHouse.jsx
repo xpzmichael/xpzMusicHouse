@@ -152,11 +152,9 @@ const MusicHouse = () => {
                 ref={audioRef}
                 onEnded={songEndHandler}
             ></audio>
-            <video 
-                src="./videos/video1.mp4" 
-                autoPlay loop muted 
-                className="background-video"
-            ></video>
+            <img className="background-image"
+                src="images/bgImg.PNG" alt=""
+            ></img>
             <div className="library-container">
                 <LibraryButton setisLibraryOpen={setIsLibraryOpen} isLibraryOpen={isLibraryOpen}/>
                 <Library 

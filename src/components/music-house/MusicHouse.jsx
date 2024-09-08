@@ -48,7 +48,7 @@ function useAppAnimate(isLibraryOpen, isInfoOpen) {
             animate(".info-container", 
                 {
                     width: "350px",
-                    backgroundColor: "rgba(0, 0, 0, 0.2)",
+                    backgroundColor: "rgba(70, 60, 56, 0.9)",
                 }, 
                 {
                     type: "spring",

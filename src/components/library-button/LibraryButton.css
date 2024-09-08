@@ -13,11 +13,11 @@
 }
 
 .library-toggle {
+    font-size: 18px;
     background: transparent;
-    border: none;
     cursor: pointer;
     border: 2px solid rgb(65, 65, 65);
-    padding: 0.8rem;
+    padding: 10px;
     transition: all 0.3s ease;
 }
 

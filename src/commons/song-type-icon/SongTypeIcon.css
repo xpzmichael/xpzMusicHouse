@@ -1,0 +1,26 @@
+
+.song-type-icon-wrapper {
+    height: 100%;
+    width: auto; /* Ensure width is auto to respect aspect-ratio */
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--icon-color);
+    border-radius: 50%;
+    margin: 0;
+}
+
+.icon-DF {
+    height: 75%;
+    color: var(--icon-color);
+    line-height: 1;
+    margin-left: 1.5px;
+}
+
+.icon-I {
+    height: 75%;
+    color: #6c6a66;
+    line-height: 1;
+    margin-left: 0;
+}

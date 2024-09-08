@@ -5,7 +5,7 @@ import "./LibraryButton.css";
 
 const LibraryButton = ({ setisLibraryOpen, isLibraryOpen }) => {
   return (
-    <libraryButton className="library-button">
+    <div className="library-button">
       <button className="library-toggle"
         onClick={() => {
           setisLibraryOpen(!isLibraryOpen);
@@ -14,7 +14,7 @@ const LibraryButton = ({ setisLibraryOpen, isLibraryOpen }) => {
         Library
         <FontAwesomeIcon icon={faMusic} />
       </button>
-    </libraryButton>
+    </div>
   );
 };
 

@@ -6,9 +6,9 @@ import {
     faAngleRight,
     faPause,
 } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion"; // Import motion from framer-motion
 import "./Player.css";
 import { findNextActiveSong, findPreviousActiveSong } from "../../commons/SongUtil";
-
 
 const Player = ({
     currentSong,
@@ -45,6 +45,12 @@ const Player = ({
         await setCurrentSong(findNextActiveSong(songs, currentSong));
         if (isPlaying) audioRef.current.play();
     }
+
+    const motionProps = {
+        whileTap: { scale: 0.9 },
+        transition: { duration: 0.2, ease: "easeInOut" },
+    };
+
     return (
         <div className="player">
             <div className="time-control">
@@ -62,34 +68,39 @@ const Player = ({
                 />
             </div>
             <div className="play-control">
-                <FontAwesomeIcon
-                    onClick={prevSongHandler}
-                    size="2x"
-                    className="skip-back"
-                    icon={faAngleLeft}
-                />
-                {!isPlaying ? (
+                <motion.div {...motionProps}>
                     <FontAwesomeIcon
-                        onClick={playSongHandler}
+                        onClick={prevSongHandler}
                         size="2x"
-                        className="play"
-                        icon={faPlay}
+                        className="skip-back"
+                        icon={faAngleLeft}
                     />
-                ) : (
+                </motion.div>
+                <motion.div {...motionProps}>
+                    {!isPlaying ? (
+                        <FontAwesomeIcon
+                            onClick={playSongHandler}
+                            size="2x"
+                            className="play"
+                            icon={faPlay}
+                        />
+                    ) : (
+                        <FontAwesomeIcon
+                            onClick={playSongHandler}
+                            size="2x"
+                            className="pause"
+                            icon={faPause}
+                        />
+                    )}
+                </motion.div>
+                <motion.div {...motionProps}>
                     <FontAwesomeIcon
-                        onClick={playSongHandler}
+                        onClick={nextSongHandler}
                         size="2x"
-                        className="pause"
-                        icon={faPause}
+                        className="skip-forward"
+                        icon={faAngleRight}
                     />
-                )}
-
-                <FontAwesomeIcon
-                    onClick={nextSongHandler}
-                    size="2x"
-                    className="skip-forward"
-                    icon={faAngleRight}
-                />
+                </motion.div>
             </div>
         </div>
     );

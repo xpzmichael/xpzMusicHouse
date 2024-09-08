@@ -1,5 +1,5 @@
 import React from "react";
-import LibrarySong from "../library-song/LibrarySong";
+import LibrarySong from "./library-song/LibrarySong";
 import "./Library.css";
 
 

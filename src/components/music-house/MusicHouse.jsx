@@ -151,12 +151,13 @@ const MusicHouse = () => {
             setIsInfoOpen(false);
         }
     };
-    
+
     useEffect(() => {
         document.addEventListener('click', handleClickOutside);
         return () => {
             document.removeEventListener('click', handleClickOutside);
         };
+    // eslint-disable-next-line
     }, [isLibraryOpen, isInfoOpen]);
 
     return (

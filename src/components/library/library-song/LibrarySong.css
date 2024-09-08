@@ -1,7 +1,7 @@
 
 * {
     box-sizing: border-box;
-    --icon-color: #6c6a66;
+    --icon-color: #63625f;
 }
 
 .library-song {
@@ -39,6 +39,7 @@
 .song-type-icon-container {
     width: 25px;
     height: 25px;
+    color: var(--icon-color);
 }
 
 .checkbox-container {

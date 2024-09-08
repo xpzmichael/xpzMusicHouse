@@ -13,7 +13,7 @@ const Notification = ({ message, handleCloseNotification }) => {
               exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
         >
         <div className="notification-content">
-            <h3>{message}</h3>
+            <p>{message}</p>
             <motion.button 
                 className="close-button" 
                 onClick={handleCloseNotification}

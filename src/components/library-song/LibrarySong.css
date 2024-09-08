@@ -1,6 +1,7 @@
 
 * {
     box-sizing: border-box;
+    --icon-color: #6c6a66;
 }
 
 .library-song {
@@ -34,6 +35,32 @@
 .library-song:hover {
     background: rgba(0, 0, 0, 0.1);
 }
+
+.song-type-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border: 2px solid var(--icon-color);
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.icon-DF {
+    font-size: 15px;
+    color: var(--icon-color);
+    line-height: 1;
+    margin-left: 1.5px;
+}
+
+.icon-I {
+    font-size: 15px;
+    color: #6c6a66;
+    line-height: 1;
+    margin-left: 0;
+}
+
 
 .checkbox-container {
     width: 28px;

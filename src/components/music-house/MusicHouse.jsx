@@ -62,7 +62,7 @@ const MusicHouse = () => {
         duration: 0,
     });
     const [isLibraryOpen, setIsLibraryOpen] = useState(false);
-    const [NotificationShow, setNotificationShow] = useState(false);
+    const [NotificationShow, setNotificationShow] = useState(true);
 
     const timeUpdateHandler = (e) => {
         const current = e.target.currentTime;
@@ -154,7 +154,7 @@ const MusicHouse = () => {
                 <AnimatePresence>
                     {NotificationShow && 
                     <Notification 
-                        message='notification' 
+                        message='You need at least one active song!' 
                         handleCloseNotification={handleCloseNotification}
                     />}
                 </AnimatePresence>

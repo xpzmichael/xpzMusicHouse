@@ -6,6 +6,7 @@
     color: rgb(30, 30, 30);
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
+    box-shadow: 0 0 20px rgba(26,26,26,0.1);
 }
 
 
@@ -18,6 +19,11 @@
     position: relative; /* Ensure the close button is positioned relative to this container */
 }
 
+p {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
 
 .close-button {
     position: absolute;

@@ -4,15 +4,16 @@ import Player from "../player/Player";
 import SongPage from "../song-page/SongPage";
 import Library from "../library/Library";
 import LibraryButton from "../library-button/LibraryButton";
-import { useAnimate } from "framer-motion";
+import { useAnimate, AnimatePresence } from "framer-motion";
 import loadSongs from "../../song-loader/SongLoader";
+import { findNextActiveSong } from "../../commons/SongUtil";
+import Notification from "../notification/Notification";
 
 
-function useLibraryAnimate(isOpen) {
+function useLibraryAnimate(isLibraryOpen) {
     const [libraryRef, animate] = useAnimate();
     useEffect(() => {
-        console.log(`isOpen:${isOpen}`);
-        if (isOpen) {
+        if (isLibraryOpen) {
             animate(libraryRef.current, 
                 {
                     width: "350px",
@@ -27,7 +28,7 @@ function useLibraryAnimate(isOpen) {
         } else {
             animate(libraryRef.current, 
                 {
-                    width: "100px",
+                    width: "120px",
                     background: "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
                 }, 
                 {
@@ -38,9 +39,10 @@ function useLibraryAnimate(isOpen) {
             animate(".library-songs", {opacity:0, pointerEvents: "none"}, {duration: 0.5});
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isOpen]);
+    }, [isLibraryOpen]);
     return libraryRef;
 }
+
 
 
 const MusicHouse = () => {
@@ -59,8 +61,8 @@ const MusicHouse = () => {
         currentTime: 0,
         duration: 0,
     });
-    const [isOpen, setIsOpen] = useState(false);
-
+    const [isLibraryOpen, setIsLibraryOpen] = useState(false);
+    const [NotificationShow, setNotificationShow] = useState(false);
 
     const timeUpdateHandler = (e) => {
         const current = e.target.currentTime;
@@ -72,9 +74,7 @@ const MusicHouse = () => {
     };
 
     const songEndHandler = async () => {
-        let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
-    
-        await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+        await setCurrentSong(findNextActiveSong(songs, currentSong));
     
         if (isPlaying) {
             audioRef.current.load();
@@ -84,7 +84,35 @@ const MusicHouse = () => {
         }
     };
 
-    const libraryRef = useLibraryAnimate(isOpen);
+    const toggleSongActive = (id) => {
+        const activeSongs = songs.filter(song => song.active);
+        const isLastActiveSong = activeSongs.length === 1 && activeSongs[0].id === id;
+    
+        setSongs(
+            songs.map((song) => {
+                if (song.id === id) {
+                    // Prevent deactivating the last active song
+                    if (isLastActiveSong) {
+                        setNotificationShow(true);
+                        return song;
+                    }
+                    return {
+                        ...song,
+                        active: !song.active,
+                    };
+                }
+                return song;
+            })
+        );
+    };
+
+    const handleCloseNotification = () => {
+        setNotificationShow(false);
+    }
+
+    const libraryRef = useLibraryAnimate(isLibraryOpen);
+
+
     return (
         <div className="container">
             <audio
@@ -100,13 +128,14 @@ const MusicHouse = () => {
                 className="background-video"
             ></video>
             <div className="library-container" ref={libraryRef}>
-                <LibraryButton setIsOpen={setIsOpen} isOpen={isOpen}/>
+                <LibraryButton setisLibraryOpen={setIsLibraryOpen} isLibraryOpen={isLibraryOpen}/>
                 <Library 
                 className="library"
                 songs={songs} 
                 setCurrentSong={setCurrentSong} 
                 audioRef={audioRef} 
                 isPlaying={isPlaying}
+                toggleSongActive={toggleSongActive}
             /></div>
             <div className="music-container">
                 <SongPage currentSong={currentSong} isPlaying={isPlaying}/>
@@ -120,6 +149,15 @@ const MusicHouse = () => {
                     songs={songs}
                     setCurrentSong={setCurrentSong}
                     />
+            </div>
+            <div className="notification-container">
+                <AnimatePresence>
+                    {NotificationShow && 
+                    <Notification 
+                        message='notification' 
+                        handleCloseNotification={handleCloseNotification}
+                    />}
+                </AnimatePresence>
             </div>
         </div>
     );

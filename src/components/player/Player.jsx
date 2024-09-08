@@ -7,6 +7,8 @@ import {
     faPause,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Player.css";
+import { findNextActiveSong, findPreviousActiveSong } from "../../commons/SongUtil";
+
 
 const Player = ({
     currentSong,
@@ -28,21 +30,19 @@ const Player = ({
     };
     const playSongHandler = () => {
         if (isPlaying) {
-        audioRef.current.pause();
-        setIsPlaying(!isPlaying);
+            audioRef.current.pause();
+            setIsPlaying(!isPlaying);
         } else {
-        audioRef.current.play();
-        setIsPlaying(!isPlaying);
+            audioRef.current.play();
+            setIsPlaying(!isPlaying);
         }
     };
     const prevSongHandler = async () => {
-        let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
-        await setCurrentSong(songs[(currentIndex - 1) % songs.length]);
+        await setCurrentSong(findPreviousActiveSong(songs, currentSong));
         if (isPlaying) audioRef.current.play();
     }
     const nextSongHandler = async () => {
-        let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
-        await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+        await setCurrentSong(findNextActiveSong(songs, currentSong));
         if (isPlaying) audioRef.current.play();
     }
     return (

@@ -6,14 +6,26 @@
 .library-song {
     height: 100px;
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     padding: 1px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
-.library-song img {
+.song-description {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.library-song .song-description img {
     border-radius: 30%;
-    height: 80%;
+    height: 66%;
     width: auto;
     margin-left: 20px;
     margin-right: 20px;
@@ -21,4 +33,17 @@
 
 .library-song:hover {
     background: rgba(0, 0, 0, 0.1);
+}
+
+.checkbox-container {
+    width: 28px;
+    height: 28px;
+    margin-right: 16.5px;
+}
+
+.checkbox {
+    width: 28px;
+    height: 28px;
+    margin-right: 16.5px;
+    cursor: pointer;
 }

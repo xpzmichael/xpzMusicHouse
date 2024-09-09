@@ -42,7 +42,7 @@ const Info = () => {
                     </span>
                 </div>
                 <i className="note">Note: Demo songs are deselected from the playlist by default. </i>
-                <br /><br />The code of this Web App is Open-Sourced on <a href="https://github.com/xpzmichael/xpzMusicHouse">Github</a>.
+                <br /><br />The code of this Web App can be found on my <a href="https://github.com/xpzmichael/xpzMusicHouse">Github</a>.
             </div>
         </div>
     );

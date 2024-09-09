@@ -37,6 +37,7 @@ const LibrarySong = ({
             </div>
             <motion.div 
                 className="checkbox-container"
+                onClick={handleCheckboxClick}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -44,7 +45,6 @@ const LibrarySong = ({
                 <FontAwesomeIcon
                     icon={song.active ? faSquareCheck : faSquare}
                     className="checkbox"
-                    onClick={handleCheckboxClick}
                 />
             </motion.div>
         </div>

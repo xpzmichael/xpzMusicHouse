@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faPlay,
@@ -6,7 +6,7 @@ import {
     faAngleRight,
     faPause,
 } from "@fortawesome/free-solid-svg-icons";
-import { motion } from "framer-motion"; // Import motion from framer-motion
+import { motion } from "framer-motion"; 
 import "./Player.css";
 import { findNextActiveSong, findPreviousActiveSong } from "../../commons/SongUtil";
 
@@ -45,6 +45,18 @@ const Player = ({
         await setCurrentSong(findNextActiveSong(songs, currentSong));
         if (isPlaying) audioRef.current.play();
     }
+
+    const updateMusicBarBackground = () => {
+        const percentage = (songInfo.currentTime / songInfo.duration) * 100;
+        const musicBar = document.querySelector(".music-bar");
+        musicBar.style.background = `linear-gradient(to right, rgba(160,160,160,0.9) ${percentage}%, rgba(255,255,255,0.8) ${percentage}%)`;
+    };
+
+    useEffect(() => {
+        updateMusicBarBackground();
+    // eslint-disable-next-line
+    }, [songInfo.currentTime, songInfo.duration]);
+
 
     const motionProps = {
         whileTap: { scale: 0.9 },

@@ -19,24 +19,53 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin: 0;
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 0px;
 }
 
 .music-bar {
-    width: 100%;
-    margin-bottom: 16px;
+    width: 95%;
+    margin: 0px;
     height: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     border-radius: 5px;
     outline: none;
-    filter: hue-rotate(20deg);
+    cursor: pointer;
 }
+
+
+/* Style the thumb in WebKit browsers (Chrome, Safari) */
+.music-bar::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #333; /* Color of the dot */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Style the thumb in Firefox */
+.music-bar::-moz-range-thumb {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #333; /* Color of the dot */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 
 .play-control {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 80%;
-    padding: 5%;
+    padding: 13px;
+    margin-top: 10px;
 }
 
 .skip-back,
@@ -52,4 +81,8 @@
 .pause:active,
 .skip-forward:active {
     color: darkgray;
+}
+
+.play {
+    margin-left: 6px;
 }

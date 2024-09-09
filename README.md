@@ -15,4 +15,4 @@ There are 3 types of songs:
 *Note: Demo songs are deselected from the playlist by default.*
 
 ## Deployment
-The app is avaibale at [https://xpz-music-house.vercel.app/](https://xpz-music-house.vercel.app/).
+The app is avaibale at [xpz-music-house.vercel.app](https://xpz-music-house.vercel.app/) and [xpzmusichouse.pages.dev](https://xpzmusichouse.pages.dev/).

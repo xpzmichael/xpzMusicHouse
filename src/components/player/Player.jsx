@@ -47,7 +47,7 @@ const Player = ({
     }
 
     const updateMusicBarBackground = () => {
-        const percentage = (songInfo.currentTime / songInfo.duration) * 100;
+        const percentage = (songInfo.currentTime / songInfo.duration) * 95 + 0.75;
         const musicBar = document.querySelector(".music-bar");
         musicBar.style.background = `linear-gradient(to right, rgba(160,160,160,0.9) ${percentage}%, rgba(255,255,255,0.8) ${percentage}%)`;
     };

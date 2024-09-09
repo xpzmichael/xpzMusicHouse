@@ -19,6 +19,7 @@ function useAppAnimate(isLibraryOpen, isInfoOpen) {
             animate(".library-container", 
                 {
                     width: "350px",
+                    zIndex: "90",
                     background: "linear-gradient(to bottom, rgba(175, 170, 255, 0.95), rgba(255, 170, 175, 0.95))",
                 }, 
                 {
@@ -32,6 +33,7 @@ function useAppAnimate(isLibraryOpen, isInfoOpen) {
             animate(".library-container", 
                 {
                     width: "140px",
+                    zIndex: "10",
                     background: "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0))",
                 }, 
                 {
@@ -48,6 +50,7 @@ function useAppAnimate(isLibraryOpen, isInfoOpen) {
             animate(".info-container", 
                 {
                     width: "350px",
+                    zIndex: "89",
                     backgroundColor: "rgba(70, 60, 56, 0.9)",
                 }, 
                 {
@@ -60,6 +63,7 @@ function useAppAnimate(isLibraryOpen, isInfoOpen) {
             animate(".info-container", 
                 {
                     width: "120px",
+                    zIndex: "10",
                     backgroundColor: "rgba(0, 0, 0, 0)",
                 }, 
                 {

@@ -47,6 +47,7 @@
     height: 38px;
     padding: 5px;
     display: inline-block;
+    z-index: 98;
 }
 
 .checkbox {

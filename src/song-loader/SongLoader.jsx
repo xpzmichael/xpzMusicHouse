@@ -2,18 +2,18 @@ import SongType from '../commons/SongType';
 
 const loadSongs = () => {
     const files = [
+        "弃猫效应.mp3",
+        "Plastic Memory.mp3",
+        "利兹与青鸟.mp3",
+        "到这里为止.mp3",
         "温柔的夜 (inst).mp3",
         "到这里为止 (inst).mp3",
         "如果明天世界崩坏 (inst).mp3",
         "傻狗 (inst).mp3",
         "Plastic Memory (inst).mp3",
         "利兹与青鸟 (inst).mp3",
-        "Plastic Memory.mp3",
-        "利兹与青鸟.mp3",
-        "到这里为止.mp3",
         "1364 (demo).mp3",
-        "6451 (demo).mp3",
-        "弃猫效应 (demo).mp3"
+        "6451 (demo).mp3"
     ];
 
     const songs = files.map((file, index) => {
